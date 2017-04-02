@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2015
+Project("{74BBD8B7-E38F-45CB-E698-E3262D82E0D1}") = "BounceTape", "BounceTape.vcxproj", "{BD751ED9-C1BB-9A0E-FEBC-43ACB2F79AE7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD751ED9-C1BB-9A0E-FEBC-43ACB2F79AE7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BD751ED9-C1BB-9A0E-FEBC-43ACB2F79AE7}.Debug|Win32.Build.0 = Debug|Win32
+		{BD751ED9-C1BB-9A0E-FEBC-43ACB2F79AE7}.Release|Win32.ActiveCfg = Release|Win32
+		{BD751ED9-C1BB-9A0E-FEBC-43ACB2F79AE7}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
