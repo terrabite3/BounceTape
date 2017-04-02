@@ -25,11 +25,20 @@ BounceTapeAudioProcessor::BounceTapeAudioProcessor()
                        )
 #endif
 {
+	int channels = 2;
+	int length = 88200;
+
+	mTapes = new Tape*[channels];
+
+	for (int i = 0; i < channels; ++i) {
+		mTapes[i] = new Tape(100000);
+	}
+
 }
 
 BounceTapeAudioProcessor::~BounceTapeAudioProcessor()
 {
-}
+	delete[] mTapes;
 
 //==============================================================================
 const String BounceTapeAudioProcessor::getName() const
@@ -139,9 +148,22 @@ void BounceTapeAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuff
     // audio processing...
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
     {
-        float* channelData = buffer.getWritePointer (channel);
+		const float* inData = buffer.getReadPointer(channel);
+        float* outData = buffer.getWritePointer (channel);
+
 
         // ..do something to the data...
+
+
+		for (int sample = 0; sample < buffer.getNumSamples(); ++sample) {
+
+			float tapeSample = mTapes[channel]->swapSample(inData[sample] * 0.5);
+
+			outData[sample] = inData[sample] + tapeSample;
+
+
+		}
+
     }
 }
 

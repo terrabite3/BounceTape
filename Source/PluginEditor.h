@@ -33,6 +33,25 @@ private:
     // access the processor object that created it.
     BounceTapeAudioProcessor& processor;
 
+	Slider mBufferSlider;
+
+
+	class RepaintTimer : public Timer {
+	public:
+		RepaintTimer(BounceTapeAudioProcessorEditor *parent) :
+			Timer(),
+			mParent(parent) {}
+
+		void timerCallback() {
+			mParent->repaint();
+		}
+
+	private:
+		BounceTapeAudioProcessorEditor *mParent;
+	};
+
+	RepaintTimer mTimer;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (BounceTapeAudioProcessorEditor)
 };
 
